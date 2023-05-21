@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">Ntes-app</string>
+    <string name="app_name">FirstApplication</string>
+    <string name="spiice">Spiice</string>
+    <string name="discover_the_platform">Discover the platform</string>
+    <string name="login">You have an account ? Log-in</string>
+    <string name="second_text">Find projects from companies everywhere in the word</string>
+    <string name="skip">Skip</string>
+    <string name="log_in">Log-in</string>
+    <string name="return_to_sign_up">Return to Sign-up</string>
+    <string name="sign_up_down_text">You have an account ? Log-in</string>
+    <string name="sign_up">Sign-up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="work_hard_and_level_up">Work hard and level up!</string>
+    <string name="enjoy_your_progess">Enjoy your progess!</string>
+    <string name="logout">Logout</string>
+    <string name="add_new">Add new</string>
+    <string name="back">Back</string>
+    <string name="add_note">Add note</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="add">Add</string>
 </resources>

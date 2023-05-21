@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SpiiceOnboradStyle">
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextOnboardStyle">
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SkipOnboardStyle">
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Button_style">
+        <item name="android:backgroundTint">@color/buttonColor</item>
+        <item name="android:fontFamily">@font/public_sans_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text_down_style">
+        <item name="android:fontFamily">@font/public_sans_medium</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Spiice_style">
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:textColor">@color/sppiiceBlack</item>
+        <item name="android:textSize">96sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="Image_back_style">
+        <item name="android:background">@drawable/krugliye_ugli</item>
+        <item name="android:backgroundTint">@color/background_box</item>
+        <item name="android:alpha">0.76</item>
+    </style>
+
+    <style name="Text_up_style">
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+
+    <style name="EditText_style">
+        <item name="android:background">@drawable/krugliye_ugli2</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="Notes_screen_text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/notes_screen_text</item>
+    </style>
+
+    <style name="Add_notes_up_style">
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+    </style>
+
+
+</resources>
