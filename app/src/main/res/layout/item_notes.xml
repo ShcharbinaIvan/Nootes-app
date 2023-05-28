@@ -8,8 +8,8 @@
         style="@style/Add_notes_up_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_10dp"
         android:text="@string/title" />
 
     <TextView
@@ -17,18 +17,18 @@
         style="@style/Notes_screen_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="287dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/_288dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_16dp"
         android:text="@string/title" />
 
     <TextView
-        android:id="@+id/note_text_view"
+        android:id="@+id/message_text_view"
         style="@style/Notes_screen_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_46dp"
         android:text="@string/title" />
 
 </FrameLayout>

@@ -4,26 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         style="@style/text_top"
-        android:layout_width="@dimen/_172dp"
-        android:layout_height="@dimen/_52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_24"
-        android:layout_marginEnd="@dimen/dp_186"
-        android:layout_marginBottom="@dimen/dp_736"
-        android:text="@string/all_notes"
+        android:layout_marginTop="@dimen/dp_60"
+        android:layout_marginEnd="@dimen/dp_230"
+        android:layout_marginBottom="@dimen/dp_700"
+        android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/note_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_80"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
