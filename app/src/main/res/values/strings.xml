@@ -29,5 +29,7 @@
     <string name="all_notes">All Notes</string>
     <string name="name_empty">Name field is empty</string>
     <string name="text">Text</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="delete_all_notes">Delete all notes</string>
 
 </resources>

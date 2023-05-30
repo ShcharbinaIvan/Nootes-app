@@ -72,6 +72,9 @@
     <dimen name="_10dp">10dp</dimen>
     <dimen name="_288dp">288dp</dimen>
     <dimen name="_46dp">46dp</dimen>
+    <dimen name="_594dp">594dp</dimen>
+    <dimen name="_540dp">540dp</dimen>
+    <dimen name="_138dp">138dp</dimen>
 
 
 </resources>
