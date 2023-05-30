@@ -5,6 +5,7 @@
         <item name="android:fontFamily">@font/red_hat_display_medium</item>
         <item name="android:textColor">@color/text_clor_black</item>
         <item name="android:textSize">32sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="TextOnboardStyle">
@@ -71,6 +72,13 @@
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/red_hat_display_medium</item>
+    </style>
+
+    <style name="text_top">
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 

@@ -7,23 +7,27 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
+import com.ntes_app.databinding.FragmentOnboardingBinding
 import com.ntes_app.ui.SignUpFragment
+import com.ntes_app.ui.util.replaceFragment
 
 
-class FirstOnboardingFragment : Fragment() {
+class OnboardingFragment : Fragment() {
+    private lateinit var binding: FragmentOnboardingBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_first_onboarding, container, false)
+    ): View {
+        binding = FragmentOnboardingBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<TextView>(R.id.skip_first).setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, SignUpFragment())
-                .commit()
+            parentFragmentManager.replaceFragment(R.id.container, SignUpFragment())
         }
+        binding.viewPager.adapter = OnboardingAdapter(parentFragmentManager)
+        binding.circleIndicator.setViewPager(binding.viewPager)
     }
 }

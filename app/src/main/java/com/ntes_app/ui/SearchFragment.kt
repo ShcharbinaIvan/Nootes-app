@@ -4,24 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
 
-class SignUpFragment : Fragment() {
+class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<TextView>(R.id.go_to_login_text_view).setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, LogInFragment())
-                .commit()
-        }
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    companion object {
+        const val TAG = "SearchFragment"
     }
 }

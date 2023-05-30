@@ -8,4 +8,5 @@
     <color name="field_color">#FBEEFF</color>
     <color name="background_box">#FFFFFF</color>
     <color name="notes_screen_text">#99879D</color>
+    <color name="unselected">#299378FF</color>
 </resources>
