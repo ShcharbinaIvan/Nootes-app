@@ -81,5 +81,26 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="profile_notes">
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+    </style>
+
+    <style name="profile_logout">
+        <item name="android:textColor">@color/text_clor_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/red_hat_display_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="profile_button">
+        <item name="android:background">@drawable/krugliye_ugli</item>
+        <item name="backgroundTint">@color/field_color</item>
+        <item name="android:fontFamily">@font/public_sans_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_clor_black</item>
+    </style>
+
 
 </resources>

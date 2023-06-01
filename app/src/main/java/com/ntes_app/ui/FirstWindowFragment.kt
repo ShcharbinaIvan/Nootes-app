@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentFirstWindowBinding
-import com.ntes_app.ui.onboarding_fragments.OnboardingFragment
+import com.ntes_app.onboarding_fragments.OnboardingFragment
 
 class FirstWindowFragment : Fragment() {
     private lateinit var binding: FragmentFirstWindowBinding
@@ -30,7 +30,7 @@ class FirstWindowFragment : Fragment() {
         }
         view.findViewById<TextView>(R.id.go_to_login).setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, NavigationFragment())
+                .replace(R.id.container, LogInFragment())
                 .commit()
         }
     }
