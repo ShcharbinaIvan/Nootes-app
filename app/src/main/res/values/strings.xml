@@ -31,5 +31,6 @@
     <string name="text">Text</string>
     <string name="delete_profile">Delete profile</string>
     <string name="delete_all_notes">Delete all notes</string>
+    <string name="insert_first_name">Insert First name!</string>
 
 </resources>

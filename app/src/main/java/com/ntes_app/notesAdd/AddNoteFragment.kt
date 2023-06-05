@@ -7,20 +7,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentAddNoteBinding
 import com.ntes_app.model.Note
 import com.ntes_app.util.getString
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.nameNoteValidation
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.util.Date
 
 class AddNoteFragment : Fragment() {
+
     private lateinit var binding: FragmentAddNoteBinding
     private val viewModel: AddNoteViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,9 +57,8 @@ class AddNoteFragment : Fragment() {
             Date().time,
             binding.messageEditText.getString()
         )
-        lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.addNewNote(note)
-        }
+        viewModel.addNewNote(note)
+
 
     }
 

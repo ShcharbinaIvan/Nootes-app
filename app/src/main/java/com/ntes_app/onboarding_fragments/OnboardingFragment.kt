@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentOnboardingBinding
-import com.ntes_app.ui.SignUpFragment
+import com.ntes_app.user.SignUpFragment
 import com.ntes_app.util.replaceFragment
 
 

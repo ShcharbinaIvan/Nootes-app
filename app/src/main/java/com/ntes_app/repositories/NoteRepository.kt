@@ -1,6 +1,6 @@
 package com.ntes_app.repositories
 
-import com.ntes_app.database.note.AppNotesDataBase
+import com.ntes_app.database.AppNotesDataBase
 import com.ntes_app.model.Note
 import com.ntes_app.model.entity.NotesEntity
 

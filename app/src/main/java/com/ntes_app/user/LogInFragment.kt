@@ -1,15 +1,13 @@
-package com.ntes_app.ui
+package com.ntes_app.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
-import com.ntes_app.databinding.FragmentFirstWindowBinding
 import com.ntes_app.databinding.FragmentLogInBinding
+import com.ntes_app.ui.NavigationFragment
 
 class LogInFragment : Fragment() {
     private lateinit var binding: FragmentLogInBinding
@@ -33,4 +31,5 @@ class LogInFragment : Fragment() {
                 .commit()
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package com.ntes_app.database.note.mobile
+package com.ntes_app.database.note
 
 import androidx.room.Dao
 import androidx.room.Insert
