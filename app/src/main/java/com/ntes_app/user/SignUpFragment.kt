@@ -14,7 +14,9 @@ import com.ntes_app.ui.NavigationFragment
 import com.ntes_app.util.getString
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.userFirstNameValidation
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding

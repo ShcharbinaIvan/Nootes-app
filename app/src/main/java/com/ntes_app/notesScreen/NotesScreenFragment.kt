@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ntes_app.databinding.FragmentNotesScreenBinding
 import com.ntes_app.model.Note
 import com.ntes_app.notesScreen.adapter.NotesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NotesScreenFragment : Fragment() {
     private lateinit var binding: FragmentNotesScreenBinding
     private val viewModel: NotesScreenViewModel by viewModels()

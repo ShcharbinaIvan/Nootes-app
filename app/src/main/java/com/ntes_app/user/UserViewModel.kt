@@ -6,13 +6,17 @@ import androidx.lifecycle.viewModelScope
 import com.ntes_app.model.User
 import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.repositories.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel : ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(
+    private val userRepository: UserRepository
+) : ViewModel() {
     var index: Int? = null
 
-    private val userRepository = UserRepository()
 
     val usersList = MutableLiveData<ArrayList<User>>()
     fun addNewUser(user: User) {
@@ -24,12 +28,6 @@ class UserViewModel : ViewModel() {
     fun deleteUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.deleteUser(user)
-        }
-    }
-
-    fun getAllUsers() {
-        viewModelScope.launch(Dispatchers.IO) {
-            usersList.postValue(userRepository.getAllUsers())
         }
     }
 

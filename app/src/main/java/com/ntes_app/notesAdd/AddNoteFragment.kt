@@ -13,8 +13,10 @@ import com.ntes_app.model.Note
 import com.ntes_app.util.getString
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.nameNoteValidation
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
+@AndroidEntryPoint
 class AddNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNoteBinding
@@ -53,6 +55,7 @@ class AddNoteFragment : Fragment() {
 
     private fun addNote() {
         val note = Note(
+            0,
             binding.titleEditText.getString(),
             Date().time,
             binding.messageEditText.getString()

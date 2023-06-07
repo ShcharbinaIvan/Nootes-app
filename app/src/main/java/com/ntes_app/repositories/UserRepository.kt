@@ -1,16 +1,17 @@
 package com.ntes_app.repositories
 
-import com.ntes_app.database.AppNotesDataBase
-import com.ntes_app.model.Note
+import com.ntes_app.database.user.UserDao
 import com.ntes_app.model.User
 import com.ntes_app.model.entity.UserEntity
+import javax.inject.Inject
 
-class UserRepository {
+class UserRepository @Inject constructor(
+    private val userDao: UserDao
+) {
 
     suspend fun addUser(user: User) {
-        AppNotesDataBase.userDao?.addUser(
+        userDao.addUser(
             UserEntity(
-                0,
                 user.userFirstName,
                 user.userLastName,
                 user.userEmail,
@@ -19,17 +20,15 @@ class UserRepository {
         )
     }
 
-    suspend fun getAllUsers(): ArrayList<User> {
-        return (AppNotesDataBase.userDao?.getAllUsers()?.map {
-            User(
-                it.userFirstName,
-                it.userLastName,
-                it.userEmail,
-                it.userPassword
+    suspend fun deleteUser(user: User) {
+        userDao.deleteUser(
+            UserEntity(
+                user.userFirstName,
+                user.userLastName,
+                user.userEmail,
+                user.userEmail
             )
-        } as ArrayList<User>) ?: arrayListOf()
+        )
     }
-
-    suspend fun deleteUser(user: User) = AppNotesDataBase.listUser.remove(user)
 
 }
