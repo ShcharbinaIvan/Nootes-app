@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentFirstWindowBinding
 import com.ntes_app.onboarding_fragments.OnboardingFragment
+import com.ntes_app.user.LogInFragment
 
 class FirstWindowFragment : Fragment() {
     private lateinit var binding: FragmentFirstWindowBinding

@@ -9,3 +9,11 @@ fun nameNoteValidation(name: String): ValidationResult {
         else -> ValidationResult.Valid
     }
 }
+
+fun userFirstNameValidation(firstName: String): ValidationResult {
+    return when {
+        firstName.length == 0 -> ValidationResult.Invalid(R.string.insert_first_name)
+        else -> ValidationResult.Valid
+    }
+
+}
