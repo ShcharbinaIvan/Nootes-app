@@ -10,17 +10,22 @@ import androidx.fragment.app.viewModels
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentAddNoteBinding
 import com.ntes_app.model.Note
+import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.util.getString
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.nameNoteValidation
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AddNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNoteBinding
     private val viewModel: AddNoteViewModel by viewModels()
+
+    @Inject
+     lateinit var sharedPreferenceRepository: SharedPreferenceRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,7 +60,7 @@ class AddNoteFragment : Fragment() {
 
     private fun addNote() {
         val note = Note(
-            0,
+            sharedPreferenceRepository.getCurrentUserEmail().toString(),
             binding.titleEditText.getString(),
             Date().time,
             binding.messageEditText.getString()

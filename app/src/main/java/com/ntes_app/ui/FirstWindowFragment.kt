@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentFirstWindowBinding
 import com.ntes_app.onboarding_fragments.OnboardingFragment
-import com.ntes_app.user.LogInFragment
+import com.ntes_app.user.log_in.LogInFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FirstWindowFragment : Fragment() {
     private lateinit var binding: FragmentFirstWindowBinding
     override fun onCreateView(

@@ -32,5 +32,17 @@
     <string name="delete_profile">Delete profile</string>
     <string name="delete_all_notes">Delete all notes</string>
     <string name="insert_first_name">Insert First name!</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="delete_note">Delete note?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="show_note">Show Note</string>
+    <string name="delete_current_use">Delete Current Use?</string>
+    <string name="_0">0</string>
+    <string name="_0_notes">0 notes</string>
+    <string name="delete_all_notes_2">Delete All Notes?</string>
+    <string name="ok">Ok</string>
+    <string name="invalid_password_or_email">Invalid Password Or Email</string>
 
 </resources>

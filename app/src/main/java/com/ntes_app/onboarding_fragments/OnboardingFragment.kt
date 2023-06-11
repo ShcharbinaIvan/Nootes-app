@@ -8,10 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentOnboardingBinding
-import com.ntes_app.user.SignUpFragment
+import com.ntes_app.user.sing_up.SignUpFragment
 import com.ntes_app.util.replaceFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OnboardingFragment : Fragment() {
     private lateinit var binding: FragmentOnboardingBinding
     override fun onCreateView(

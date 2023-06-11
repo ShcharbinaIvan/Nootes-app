@@ -17,9 +17,16 @@ class NotesScreenViewModel @Inject constructor(
 
     val notesList = MutableLiveData<ArrayList<Note>>()
 
-    fun getAllNotes() {
+    fun getAllNotes(email:String) {
         viewModelScope.launch(Dispatchers.IO) {
-            notesList.postValue(noteRepository.getAllNotes())
+            notesList.postValue(noteRepository.getAllNotes(email))
+        }
+    }
+
+    fun deleteNote(note: Note,email: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            noteRepository.deleteNote(note)
+            getAllNotes(email)
         }
     }
 }

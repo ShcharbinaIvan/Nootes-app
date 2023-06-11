@@ -9,11 +9,18 @@ import com.ntes_app.model.entity.NotesEntity
 
 @Dao
 interface NotesDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNotes(note: NotesEntity)
 
-    @Query("SELECT * FROM note")
-    suspend fun getAllNotes(): List<NotesEntity>
+    @Query("SELECT * FROM note where noteEmail = :email")
+    suspend fun getAllNotes(email: String): List<NotesEntity>
+
+    @Query("SELECT * FROM note where noteEmail = :email")
+    suspend fun getNotesByEmail(email: String): List<NotesEntity>
+
+    @Delete
+    suspend fun deleteNotesByEmail(notes: List<NotesEntity>)
 
     @Delete
     suspend fun deleteNote(note: NotesEntity)
