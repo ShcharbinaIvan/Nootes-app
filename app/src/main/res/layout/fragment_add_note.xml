@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/Add_notes_up_style"
+        android:layout_width="@dimen/_110dp"
+        android:layout_height="@dimen/_34dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/_82dp"
+        android:layout_marginEnd="@dimen/_250dp"
+        android:layout_marginBottom="@dimen/dp_700"
+        android:text="@string/add_note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/title_edit_text"
+        style="@style/EditText_style"
+        android:layout_width="@dimen/_344dp"
+        android:layout_height="@dimen/_56dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/_154dp"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/_602dp"
+        android:hint="@string/title"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/message_edit_text"
+        style="@style/EditText_style"
+        android:layout_width="@dimen/_344dp"
+        android:layout_height="@dimen/_160dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/_250dp"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/_404dp"
+        android:hint="@string/message"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_add"
+        style="@style/Button_style"
+        android:layout_width="@dimen/_264dp"
+        android:layout_height="@dimen/_54dp"
+        android:layout_marginStart="@dimen/_56dp"
+        android:layout_marginTop="@dimen/_602dp"
+        android:layout_marginEnd="@dimen/_56dp"
+        android:layout_marginBottom="@dimen/_156dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
