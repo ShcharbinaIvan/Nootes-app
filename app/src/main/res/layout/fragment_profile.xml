@@ -20,8 +20,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/Add_notes_up_style"
         android:id="@+id/profile_name"
+        style="@style/Add_notes_up_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16dp"
@@ -29,13 +29,13 @@
         android:layout_marginEnd="@dimen/_192dp"
         android:layout_marginBottom="@dimen/_656dp"
         android:gravity="center"
-        android:text="Ivan Shcharbina"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/notes_quantity"
         style="@style/profile_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="@dimen/_264dp"
         android:layout_marginBottom="@dimen/_594dp"
         android:gravity="start"
-        android:text="100 Notes"
+        android:text="@string/_0_notes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

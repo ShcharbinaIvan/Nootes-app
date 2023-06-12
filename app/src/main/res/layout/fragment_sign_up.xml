@@ -62,72 +62,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        style="@style/EditText_style"
-        android:layout_width="@dimen/_296dp"
-        android:layout_height="@dimen/_52dp"
-        android:layout_marginStart="@dimen/dp_40"
-        android:layout_marginTop="@dimen/_340dp"
-        android:layout_marginEnd="@dimen/dp_40"
-        android:layout_marginBottom="@dimen/_420dp"
-        android:hint="@string/email"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        style="@style/EditText_style"
-        android:layout_width="@dimen/_296dp"
-        android:layout_height="@dimen/_52dp"
-        android:layout_marginStart="@dimen/dp_40"
-        android:layout_marginTop="@dimen/_416dp"
-        android:layout_marginEnd="@dimen/dp_40"
-        android:layout_marginBottom="@dimen/_344dp"
-        android:hint="@string/password"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/first_name_edit_text"
-        style="@style/EditText_style"
-        android:layout_width="@dimen/_296dp"
-        android:layout_height="@dimen/_52dp"
-        android:layout_marginStart="@dimen/dp_40"
-        android:layout_marginTop="@dimen/_188dp"
-        android:layout_marginEnd="@dimen/dp_40"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/first_name_container"
+        android:layout_width="296dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="@dimen/_572dp"
-        android:hint="@string/first_name"
-        android:importantForAutofill="no"
-        android:inputType="text"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/last_name_edit_text"
-        style="@style/EditText_style"
-        android:layout_width="@dimen/_296dp"
-        android:layout_height="@dimen/_52dp"
-        android:layout_marginStart="@dimen/dp_40"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/first_name_edit_text"
+            style="@style/EditText_style"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:lines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/last_name_container"
+        android:layout_width="296dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="@dimen/_264dp"
-        android:layout_marginEnd="@dimen/dp_40"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="@dimen/_496dp"
-        android:hint="@string/last_name"
-        android:importantForAutofill="no"
-        android:inputType="text"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/last_name_edit_text"
+            style="@style/EditText_style"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:lines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_container"
+        android:layout_width="296dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="@dimen/_420dp"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_edit_text"
+            style="@style/EditText_style"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:lines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_container"
+        android:layout_width="296dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="@dimen/_340dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_edit_text"
+            style="@style/EditText_style"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:lines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ntes_app.R
-import com.ntes_app.databinding.FragmentLogInBinding
 import com.ntes_app.databinding.FragmentNavigationBinding
 import com.ntes_app.notesAdd.AddNoteFragment
 import com.ntes_app.notesScreen.NotesScreenFragment
+import com.ntes_app.user.profile.ProfileFragment
 import com.ntes_app.util.replaceFragment
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class NavigationFragment : Fragment() {
     private lateinit var binding: FragmentNavigationBinding

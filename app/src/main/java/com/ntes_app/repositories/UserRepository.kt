@@ -20,6 +20,11 @@ class UserRepository @Inject constructor(
         )
     }
 
+    suspend fun getUser(email: String): User {
+        val userEntity = userDao.getUser(email)
+        return User(userEntity.userFirstName, userEntity.userLastName, userEntity.userEmail, userEntity.userPassword)
+    }
+
     suspend fun deleteUser(user: User) {
         userDao.deleteUser(
             UserEntity(

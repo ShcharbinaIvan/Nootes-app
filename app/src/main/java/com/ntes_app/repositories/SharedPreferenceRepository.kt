@@ -40,6 +40,10 @@ class SharedPreferenceRepository @Inject constructor(
         }
     }
 
+    fun getCurrentUserEmail(): String? {
+        return userEmailPreferences.getString(USER_EMAIL_PREFERENCE, null)
+    }
+
     fun deleteCurrentUser() {
         userEmailPreferences.edit {
             clear()

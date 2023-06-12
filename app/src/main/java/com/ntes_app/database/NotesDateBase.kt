@@ -7,8 +7,9 @@ import com.ntes_app.database.user.UserDao
 import com.ntes_app.model.entity.NotesEntity
 import com.ntes_app.model.entity.UserEntity
 
-@Database(entities = [NotesEntity::class], [UserEntity::class], version = 1)
+@Database(entities = [NotesEntity::class, UserEntity::class], version = 1)
 abstract class NotesDateBase : RoomDatabase() {
+
     abstract fun getNotesDao(): NotesDao
 
     abstract fun getUserDao(): UserDao

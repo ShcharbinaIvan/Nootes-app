@@ -1,10 +1,7 @@
-package com.ntes_app.user
+package com.ntes_app.user.log_in
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ntes_app.model.User
-import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.repositories.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -12,23 +9,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(
+class LogInViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : ViewModel() {
-    var index: Int? = null
 
-
-    val usersList = MutableLiveData<ArrayList<User>>()
-    fun addNewUser(user: User) {
+    fun getUserEmail(email: String): String {
+        var emailUser = ""
         viewModelScope.launch(Dispatchers.IO) {
-            userRepository.addUser(user)
+            emailUser = userRepository.getUser(email).userEmail
         }
+        return emailUser
     }
-
-    fun deleteUser(user: User) {
+    fun getUserPassword(email: String): String {
+        var emailPassword = ""
         viewModelScope.launch(Dispatchers.IO) {
-            userRepository.deleteUser(user)
+            emailPassword = userRepository.getUser(email).userPassword
         }
+        return emailPassword
     }
-
 }
