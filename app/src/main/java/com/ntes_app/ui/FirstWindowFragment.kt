@@ -26,12 +26,12 @@ class FirstWindowFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<Button>(R.id.button_spiice).setOnClickListener {
+        binding.buttonSpiice.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, OnboardingFragment())
                 .commit()
         }
-        view.findViewById<TextView>(R.id.go_to_login).setOnClickListener {
+        binding.goToLogin.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, LogInFragment())
                 .commit()

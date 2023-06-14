@@ -20,11 +20,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:id="@+id/search"
+        style="@style/EditText_style"
+        android:layout_width="@dimen/_344dp"
+        android:layout_height="@dimen/_46dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/_138dp"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/_644dp"
+        android:queryHint="@string/search_by_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recycler_view"
+        android:layout_width="@dimen/_344dp"
+        android:layout_height="@dimen/_322dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

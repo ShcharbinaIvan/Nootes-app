@@ -80,8 +80,8 @@ class SignUpFragment : Fragment() {
             binding.emailEditText.getString(),
             binding.passwordEditText.getString()
         )
-        viewModel.addNewUser(user)
         sharedPreferenceRepository.saveCurrentUserEmail(user.userEmail)
+        viewModel.addNewUser(user)
     }
 
     private fun emailFocusListener() {
@@ -96,7 +96,7 @@ class SignUpFragment : Fragment() {
 
         val emailText = binding.emailEditText.text.toString()
         if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
-            return "Invalid Email Address"
+            return getString(R.string.invalid_email_address)
         }
 //        if (emailText == viewModel.getUserEmail(emailText)) {
 //            return "Email Already In Use"
@@ -116,7 +116,7 @@ class SignUpFragment : Fragment() {
 
         val firstNameText = binding.firstNameEditText.text.toString()
         if (firstNameText.isEmpty()) {
-            return "Invalid Name"
+            return getString(R.string.invalid_name)
         }
         return null
     }
@@ -133,7 +133,7 @@ class SignUpFragment : Fragment() {
 
         val lastNameText = binding.lastNameEditText.text.toString()
         if (lastNameText.isEmpty()) {
-            return "Invalid Name"
+            return getString(R.string.invalid_name)
         }
         return null
     }
@@ -150,10 +150,10 @@ class SignUpFragment : Fragment() {
 
         val passwordText = binding.passwordEditText.text.toString()
         if (passwordText.length < 8) {
-            return "Minimum 8 Characters Password"
+            return getString(R.string.minimum_8_characters_password)
         }
         if (!passwordText.matches(".*[A-Z].*".toRegex())) {
-            return "Must contain 1 Upper-case Character"
+            return getString(R.string.must_contain_1_upper_case_character)
         }
         return null
     }

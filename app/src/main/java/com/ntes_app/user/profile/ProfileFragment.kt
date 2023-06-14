@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentProfileBinding
+import com.ntes_app.onboarding_fragments.OnboardingFragment
 import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.user.log_in.LogInFragment
 import com.ntes_app.util.replaceFragment
@@ -35,10 +36,14 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.notesQuantity.text =
-            viewModel.getAllNotesQuantity(sharedPreferenceRepository.getCurrentUserEmail().toString())
-        binding.profileName.text =
-            viewModel.getUserName(sharedPreferenceRepository.getCurrentUserEmail().toString())
+        viewModel.getUserName()
+        viewModel.getAllNotesQuantity()
+        viewModel.notesQuantity.observe(viewLifecycleOwner) {
+            binding.notesQuantity.text = it.toString()
+        }
+        viewModel.userName.observe(viewLifecycleOwner) {
+            binding.profileName.text = it
+        }
         binding.deleteProfileButton.setOnClickListener {
             deleteProfile()
         }
@@ -55,7 +60,6 @@ class ProfileFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.delete_all_notes_2))
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                viewModel.getNotesByEmail(sharedPreferenceRepository.getCurrentUserEmail().toString())
                 viewModel.deleteNotes()
             }
             .setNegativeButton(getString(R.string.no)) { _, _ ->
@@ -66,18 +70,20 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logOut() {
-        parentFragmentManager.replaceFragment(R.id.container,LogInFragment())
         sharedPreferenceRepository.deleteCurrentUser()
-
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, LogInFragment())
+            .commit()
     }
 
     private fun deleteProfile() {
         AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.delete_current_use))
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                viewModel.deleteUser(sharedPreferenceRepository.getCurrentUserEmail().toString())
-                parentFragmentManager.replaceFragment(R.id.container, LogInFragment())
+                viewModel.deleteUser()
+                viewModel.deleteNotes()
                 sharedPreferenceRepository.deleteCurrentUser()
+                parentFragmentManager.replaceFragment(R.id.container, LogInFragment())
             }
             .setNegativeButton(getString(R.string.no)) { _, _ ->
 

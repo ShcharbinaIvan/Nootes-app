@@ -14,9 +14,7 @@ import com.ntes_app.R
 import com.ntes_app.databinding.FragmentNotesScreenBinding
 import com.ntes_app.model.Note
 import com.ntes_app.notesScreen.adapter.NotesAdapter
-import com.ntes_app.repositories.SharedPreferenceRepository
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class NotesScreenFragment : Fragment() {
@@ -24,8 +22,6 @@ class NotesScreenFragment : Fragment() {
     private lateinit var binding: FragmentNotesScreenBinding
     private val viewModel: NotesScreenViewModel by viewModels()
 
-    @Inject
-    lateinit var sharedPreferenceRepository: SharedPreferenceRepository
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,7 +36,7 @@ class NotesScreenFragment : Fragment() {
         viewModel.notesList.observe(viewLifecycleOwner) {
             setListNotes(it)
         }
-        viewModel.getAllNotes(sharedPreferenceRepository.getCurrentUserEmail().toString())
+        viewModel.getAllNotes()
     }
 
     private fun setListNotes(list: ArrayList<Note>) {
@@ -76,7 +72,7 @@ class NotesScreenFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.delete_note))
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                viewModel.deleteNote(note, sharedPreferenceRepository.getCurrentUserEmail().toString())
+                viewModel.deleteNote(note)
             }
             .setNegativeButton(getString(R.string.no)) { _, _ ->
 
