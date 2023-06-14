@@ -13,8 +13,8 @@ interface NotesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNotes(note: NotesEntity)
 
-    @Query("SELECT * FROM note where noteEmail = :email")
-    suspend fun getAllNotes(email: String): List<NotesEntity>
+    @Query("SELECT * FROM note where message = :message")
+    suspend fun getAllNotes(message: String): List<NotesEntity>
 
     @Query("SELECT * FROM note where noteEmail = :email")
     suspend fun getNotesByEmail(email: String): List<NotesEntity>

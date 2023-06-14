@@ -3,8 +3,8 @@ package com.ntes_app.user.profile
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ntes_app.model.Note
 import com.ntes_app.repositories.NoteRepository
+import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.repositories.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,45 +14,59 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val userRepository: UserRepository,
-    private val noteRepository: NoteRepository
+    private val noteRepository: NoteRepository,
+    private val sharedPreferenceRepository: SharedPreferenceRepository
 ) : ViewModel() {
 
-    var notesListEmail = MutableLiveData<ArrayList<Note>>()
+    var userName = MutableLiveData<String>()
+    var notesQuantity = MutableLiveData<String>()
 
-    fun deleteUser(email: String) {
+    fun deleteUser() {
         viewModelScope.launch(Dispatchers.IO) {
-            val user = userRepository.getUser(email)
-            userRepository.deleteUser(user)
+            deleteNotes()
+            val user = sharedPreferenceRepository.getCurrentUserEmail()?.let { userRepository.getUser(it) }
+            user?.let { userRepository.deleteUser(it) }
         }
     }
 
-    fun getUserName(email: String): String {
-        var firstName = ""
-        var lastName = ""
+    fun getUserName() {
         viewModelScope.launch(Dispatchers.IO) {
-            firstName = userRepository.getUser(email).userFirstName
-            lastName = userRepository.getUser(email).userLastName
-        }
-        return "$firstName $lastName"
-    }
-
-    fun getNotesByEmail(email: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            notesListEmail.postValue(noteRepository.getNotesByEmail(email))
+            userName.postValue(
+                sharedPreferenceRepository.getCurrentUserEmail()?.let {
+                    userRepository.getUser(it)!!.userFirstName
+                }
+                        + " " + sharedPreferenceRepository.getCurrentUserEmail()?.let {
+                    userRepository.getUser(
+                        it
+                    )!!.userLastName
+                }
+            )
         }
     }
 
     fun deleteNotes() {
         viewModelScope.launch(Dispatchers.IO) {
-            noteRepository.deleteNotesByEmail(notesListEmail.value!!)
+            sharedPreferenceRepository.getCurrentUserEmail()?.let {
+                noteRepository.getNotesByEmail(
+                    it
+                )
+            }?.let {
+                noteRepository.deleteNotesByEmail(
+                    it
+                )
+            }
         }
     }
 
-    fun getAllNotesQuantity(email: String): String {
-        var quantity = ""
+    fun getAllNotesQuantity() {
         viewModelScope.launch(Dispatchers.IO) {
-            quantity = noteRepository.getAllNotes(email).size.toString()
+            notesQuantity.postValue(
+                sharedPreferenceRepository.getCurrentUserEmail()?.let {
+                    noteRepository.getNotesByEmail(
+                        it
+                    ).size
+                }.toString() + " notes"
+            )
         }
-        return quantity
     }
 }

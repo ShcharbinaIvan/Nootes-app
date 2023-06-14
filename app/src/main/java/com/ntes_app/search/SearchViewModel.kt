@@ -1,4 +1,4 @@
-package com.ntes_app.notesScreen
+package com.ntes_app.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,16 +12,17 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesScreenViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     private val noteRepository: NoteRepository,
     private val sharedPreferenceRepository: SharedPreferenceRepository
 ) : ViewModel() {
 
-    val notesList = MutableLiveData<ArrayList<Note>>()
+    val notesListByMessage = MutableLiveData<ArrayList<Note>>()
+    val notesByMessage = MutableLiveData<ArrayList<String>>()
 
-    fun getAllNotes() {
+    fun getNoteByMessage() {
         viewModelScope.launch(Dispatchers.IO) {
-            notesList.postValue(
+            notesListByMessage.postValue(
                 sharedPreferenceRepository.getCurrentUserEmail()?.let {
                     noteRepository.getNotesByEmail(
                         it
@@ -31,10 +32,4 @@ class NotesScreenViewModel @Inject constructor(
         }
     }
 
-    fun deleteNote(note: Note) {
-        viewModelScope.launch(Dispatchers.IO) {
-            noteRepository.deleteNote(note)
-            getAllNotes()
-        }
-    }
 }

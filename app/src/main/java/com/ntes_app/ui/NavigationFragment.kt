@@ -9,6 +9,7 @@ import com.ntes_app.R
 import com.ntes_app.databinding.FragmentNavigationBinding
 import com.ntes_app.notesAdd.AddNoteFragment
 import com.ntes_app.notesScreen.NotesScreenFragment
+import com.ntes_app.search.SearchFragment
 import com.ntes_app.user.profile.ProfileFragment
 import com.ntes_app.util.replaceFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +17,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 
 class NavigationFragment : Fragment() {
+
     private lateinit var binding: FragmentNavigationBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,13 +30,13 @@ class NavigationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        childFragmentManager.beginTransaction().replace(R.id.container2, NotesScreenFragment())
+        parentFragmentManager.beginTransaction().replace(R.id.container2, NotesScreenFragment())
             .commit()
         binding.bottomNavigationMenu
             .setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.home -> {
-                        childFragmentManager.replaceFragment(
+                        parentFragmentManager.replaceFragment(
                             R.id.container2,
                             NotesScreenFragment(),
                             true
@@ -42,7 +45,7 @@ class NavigationFragment : Fragment() {
                     }
 
                     R.id.search -> {
-                        childFragmentManager.replaceFragment(
+                        parentFragmentManager.replaceFragment(
                             R.id.container2,
                             SearchFragment(),
                             true
@@ -51,7 +54,7 @@ class NavigationFragment : Fragment() {
                     }
 
                     R.id.add_note -> {
-                        childFragmentManager.replaceFragment(
+                        parentFragmentManager.replaceFragment(
                             R.id.container2,
                             AddNoteFragment(),
                             true
@@ -60,7 +63,7 @@ class NavigationFragment : Fragment() {
                     }
 
                     R.id.profile -> {
-                        childFragmentManager.replaceFragment(
+                        parentFragmentManager.replaceFragment(
                             R.id.container2,
                             ProfileFragment(),
                             true

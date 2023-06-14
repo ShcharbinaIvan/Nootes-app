@@ -7,6 +7,7 @@ import com.ntes_app.onboarding_fragments.StepOnboardingFragment.Companion.getOnb
 
 class OnboardingAdapter(fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
+
     private val listFragment =
         arrayListOf(
             getOnbordingStepFragment(STEP_1),
@@ -17,4 +18,5 @@ class OnboardingAdapter(fragmentManager: FragmentManager) :
     override fun getCount() = listFragment.size
 
     override fun getItem(position: Int): Fragment = listFragment[position]
+
 }
