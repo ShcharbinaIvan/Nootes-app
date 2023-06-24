@@ -3,6 +3,7 @@ package com.ntes_app.repositories
 import com.ntes_app.database.user.UserDao
 import com.ntes_app.model.User
 import com.ntes_app.model.entity.UserEntity
+import com.ntes_app.util.getUserEntity
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(
@@ -20,9 +21,13 @@ class UserRepository @Inject constructor(
         )
     }
 
-    suspend fun getUser(email: String): User {
+    suspend fun getUser(email: String): User? {
         val userEntity = userDao.getUser(email)
-        return User(userEntity.userFirstName, userEntity.userLastName, userEntity.userEmail, userEntity.userPassword)
+        return if (userEntity != null) {
+            getUserEntity(userEntity)
+        } else {
+            null
+        }
     }
 
     suspend fun deleteUser(user: User) {

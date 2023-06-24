@@ -15,7 +15,9 @@ const val STEP_3 = 3
 private const val STEP_EXTRA = "stepExtra"
 
 class StepOnboardingFragment : Fragment() {
+
     private lateinit var binding: FragmentStepOnboardingBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

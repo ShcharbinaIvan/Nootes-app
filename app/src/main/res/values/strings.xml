@@ -38,11 +38,16 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="show_note">Show Note</string>
-    <string name="delete_current_use">Delete Current Use?</string>
+    <string name="delete_current_use">Delete Current User?</string>
     <string name="_0">0</string>
     <string name="_0_notes">0 notes</string>
     <string name="delete_all_notes_2">Delete All Notes?</string>
     <string name="ok">Ok</string>
     <string name="invalid_password_or_email">Invalid Password Or Email</string>
+    <string name="invalid_email_address">Invalid Email Address</string>
+    <string name="invalid_name">Invalid Name</string>
+    <string name="minimum_8_characters_password">Minimum 8 Characters Password</string>
+    <string name="must_contain_1_upper_case_character">Must contain 1 Upper-case Character</string>
+    <string name="search_by_message">Search by message</string>
 
 </resources>

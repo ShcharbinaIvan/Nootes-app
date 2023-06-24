@@ -8,27 +8,27 @@
         style="@style/Add_notes_up_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16dp"
-        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_10"
         android:text="@string/title" />
 
     <TextView
         android:id="@+id/date_text_view"
         style="@style/Notes_screen_text"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp_114"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_288dp"
-        android:layout_marginTop="@dimen/_10dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/dp_288"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_30"
         android:text="@string/title" />
 
     <TextView
         android:id="@+id/message_text_view"
         style="@style/Notes_screen_text"
-        android:layout_width="@dimen/_250dp"
+        android:layout_width="@dimen/dp_250"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16dp"
-        android:layout_marginTop="@dimen/_46dp"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_46"
         android:ellipsize="end"
         android:maxLines="2"
         android:singleLine="false"
@@ -38,9 +38,9 @@
         android:id="@+id/to_do_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="370dp"
-        android:layout_marginTop="@dimen/_60dp"
-        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/dp_370"
+        android:layout_marginTop="@dimen/dp_60"
+        android:layout_marginEnd="@dimen/dp_16"
         android:src="@drawable/icon_notes" />
 
 </FrameLayout>

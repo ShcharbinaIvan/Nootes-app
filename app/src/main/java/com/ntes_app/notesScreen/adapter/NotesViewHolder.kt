@@ -10,6 +10,8 @@ class NotesViewHolder(private val binding: ItemNotesBinding) : ViewHolder(bindin
 
     private val format = SimpleDateFormat(" dd/MM/yyyy")
     val imageView = binding.toDoImageView
+
+
     fun bind(note: Note) {
         binding.run {
             nameTextView.text = note.name

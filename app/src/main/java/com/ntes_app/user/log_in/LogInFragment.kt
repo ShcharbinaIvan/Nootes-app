@@ -21,11 +21,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LogInFragment : Fragment() {
 
-    private lateinit var binding: FragmentLogInBinding
-    private val viewModel: LogInViewModel by viewModels()
-
     @Inject
     lateinit var sharedPreferenceRepository: SharedPreferenceRepository
+    private lateinit var binding: FragmentLogInBinding
+    private val viewModel: LogInViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +43,10 @@ class LogInFragment : Fragment() {
         }
 
         binding.buttonLogIn.setOnClickListener {
-            validate()
+            if (validate()) {
+                login()
+            }
+
 
         }
     }
@@ -55,7 +57,6 @@ class LogInFragment : Fragment() {
         val validEmail = binding.emailContainerLog.helperText
         val validPassword = binding.passwordContainerLog.helperText
         if (validEmail == null && validPassword == null) {
-            login()
             return true
         }
         return false
@@ -63,10 +64,17 @@ class LogInFragment : Fragment() {
 
     private fun login() {
         val email = binding.emailEditTextLog.getString()
-        val emailUser = viewModel.getUserEmail(email)
         val password = binding.passwordEditTextLog.getString()
-        val userPassword = viewModel.getUserPassword(email)
-        if (email == emailUser && password == userPassword) {
+        viewModel.getUserEmail(email)
+        var userPass = ""
+        var userEmail = ""
+        viewModel.emailUser.observe(viewLifecycleOwner) {
+            userEmail = it
+        }
+        viewModel.passwordUser.observe(viewLifecycleOwner) {
+            userPass = it
+        }
+        if (email == userEmail && password == userPass) {
             sharedPreferenceRepository.saveCurrentUserEmail(email)
             parentFragmentManager.replaceFragment(R.id.container, NavigationFragment())
         } else {

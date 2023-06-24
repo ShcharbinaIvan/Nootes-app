@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class OnboardingFragment : Fragment() {
+
     private lateinit var binding: FragmentOnboardingBinding
     override fun onCreateView(
         inflater: LayoutInflater,

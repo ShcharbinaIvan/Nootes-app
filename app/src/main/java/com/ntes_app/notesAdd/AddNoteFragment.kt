@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import com.ntes_app.R
 import com.ntes_app.databinding.FragmentAddNoteBinding
 import com.ntes_app.model.Note
+import com.ntes_app.notesScreen.NotesScreenFragment
 import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.util.getString
+import com.ntes_app.util.replaceFragment
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.nameNoteValidation
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,11 +23,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class AddNoteFragment : Fragment() {
 
+    @Inject
+    lateinit var sharedPreferenceRepository: SharedPreferenceRepository
     private lateinit var binding: FragmentAddNoteBinding
     private val viewModel: AddNoteViewModel by viewModels()
-
-    @Inject
-     lateinit var sharedPreferenceRepository: SharedPreferenceRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +43,7 @@ class AddNoteFragment : Fragment() {
             if (validate()) {
                 addNote()
                 Toast.makeText(requireContext(), R.string.note_saved, Toast.LENGTH_LONG).show()
-                parentFragmentManager.popBackStack()
+                parentFragmentManager.replaceFragment(R.id.container2, NotesScreenFragment())
             }
         }
     }
@@ -59,13 +60,16 @@ class AddNoteFragment : Fragment() {
     }
 
     private fun addNote() {
-        val note = Note(
-            sharedPreferenceRepository.getCurrentUserEmail().toString(),
-            binding.titleEditText.getString(),
-            Date().time,
-            binding.messageEditText.getString()
-        )
-        viewModel.addNewNote(note)
+        val note = sharedPreferenceRepository.getCurrentUserEmail()?.let {
+            Note(
+                0,
+                it,
+                binding.titleEditText.getString(),
+                Date().time,
+                binding.messageEditText.getString()
+            )
+        }
+        note?.let { viewModel.addNewNote(it) }
 
 
     }
