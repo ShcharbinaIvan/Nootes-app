@@ -20,22 +20,9 @@ class LogInViewModel @Inject constructor(
 
     fun getUserEmail(email: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            emailUser.postValue(userRepository.getUser(email)?.userEmail)
-            passwordUser.postValue(userRepository.getUser(email)?.userPassword)
+            emailUser.postValue(userRepository.getUser(email)?.userEmail ?: "")
+            passwordUser.postValue(userRepository.getUser(email)?.userPassword ?: "")
         }
     }
 
-//    fun checkUserPassword(password: String) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            passwordUser.postValue(userRepository.getUser(password)?.userPassword)
-//        }
-//    }
-
-    fun checkUserEmail(email: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val user = userRepository.getUser(email)
-
-        }
-
-    }
 }

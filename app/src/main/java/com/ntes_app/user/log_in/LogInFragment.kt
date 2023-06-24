@@ -86,11 +86,10 @@ class LogInFragment : Fragment() {
         }
     }
 
-
     private fun validateEmail(): String? {
         val emailText = binding.emailEditTextLog.text.toString()
         if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
-            return "Invalid Email Address"
+            return getString(R.string.invalid_email_address)
         }
         return null
     }
@@ -107,10 +106,10 @@ class LogInFragment : Fragment() {
 
         val passwordText = binding.passwordEditTextLog.text.toString()
         if (passwordText.length < 8) {
-            return "Minimum 8 Characters Password"
+            return getString(R.string.minimum_8_characters_password)
         }
         if (!passwordText.matches(".*[A-Z].*".toRegex())) {
-            return "Must contain 1 Upper-case Character"
+            return getString(R.string.must_contain_1_upper_case_character)
         }
         return null
     }

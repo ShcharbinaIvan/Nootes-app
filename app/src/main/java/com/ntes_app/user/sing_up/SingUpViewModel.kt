@@ -1,5 +1,6 @@
 package com.ntes_app.user.sing_up
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ntes_app.model.User
@@ -13,8 +14,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SingUpViewModel @Inject constructor(
     private val userRepository: UserRepository,
-    private val sharedPreferenceRepository: SharedPreferenceRepository
 ) : ViewModel() {
+
+    val emailUsers = MutableLiveData<String>()
 
     fun addNewUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -22,15 +24,10 @@ class SingUpViewModel @Inject constructor(
         }
     }
 
-
-
-//    fun getUserEmail(email: String): String {
-//        var emailUser: String = ""
-//        viewModelScope.launch(Dispatchers.IO) {
-//            emailUser = userRepository.getUser(email).userEmail
-//        }
-//        return emailUser
-//    }
-
+    fun getUserEmail(email: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            emailUsers.postValue(userRepository.getUser(email)?.userEmail)
+        }
+    }
 
 }

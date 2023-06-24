@@ -99,9 +99,14 @@ class SignUpFragment : Fragment() {
         if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
             return getString(R.string.invalid_email_address)
         }
-//        if (emailText == viewModel.getUserEmail(emailText)) {
-//            return "Email Already In Use"
-//        }
+        var email = ""
+        viewModel.getUserEmail(emailText)
+        viewModel.emailUsers.observe(viewLifecycleOwner) {
+            email = it
+        }
+        if (emailText == email) {
+            return getString(R.string.email_already_in_use)
+        }
         return null
     }
 

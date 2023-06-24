@@ -32,7 +32,11 @@ class SearchFragment : Fragment() {
         viewModel.notesListByMessage.observe(viewLifecycleOwner) {
             setListSearch(it)
         }
-        viewModel.getNoteByMessage()
+//        viewModel.getNoteByMessage()
+        binding.searchButton.setOnClickListener {
+            viewModel.getNoteMessage(binding.search.text.toString())
+        }
+
 
     }
 

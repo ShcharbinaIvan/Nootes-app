@@ -45,6 +45,18 @@ class NoteRepository @Inject constructor(
         } as ArrayList<Note>)
     }
 
+    suspend fun getNoteMessage(email: String, message: String): ArrayList<Note> {
+        return (notesDao.getNotesMessage(email, message).map {
+            Note(
+                it.id,
+                it.email,
+                it.name,
+                it.date,
+                it.message
+            )
+        } as ArrayList<Note>)
+    }
+
     suspend fun deleteNotesByEmail(notes: ArrayList<Note>) {
         notesDao.deleteNotesByEmail(notes.map {
             NotesEntity(
