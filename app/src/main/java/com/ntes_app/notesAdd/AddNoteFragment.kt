@@ -4,16 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.ntes_app.R
 import com.ntes_app.databinding.FragmentAddNoteBinding
 import com.ntes_app.model.Note
-import com.ntes_app.notesScreen.NotesScreenFragment
 import com.ntes_app.repositories.SharedPreferenceRepository
 import com.ntes_app.util.getString
-import com.ntes_app.util.replaceFragment
 import com.ntes_app.validation.ValidationResult
 import com.ntes_app.validation.nameNoteValidation
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,11 +35,13 @@ class AddNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.banner.bannerButton.setOnClickListener {
+            binding.banner.root.visibility = View.GONE
+        }
         binding.buttonAdd.setOnClickListener {
             if (validate()) {
                 addNote()
-                Toast.makeText(requireContext(), R.string.note_saved, Toast.LENGTH_LONG).show()
-                parentFragmentManager.replaceFragment(R.id.container2, NotesScreenFragment())
+                binding.banner.root.visibility = View.VISIBLE
             }
         }
     }

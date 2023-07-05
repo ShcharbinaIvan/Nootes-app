@@ -14,14 +14,14 @@
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="work_hard_and_level_up">Work hard and level up!</string>
-    <string name="enjoy_your_progess">Enjoy your progess!</string>
+    <string name="enjoy_your_progess">Enjoy your progress!</string>
     <string name="logout">Logout</string>
     <string name="add_new">Add new</string>
     <string name="back">Back</string>
     <string name="add_note">Add note</string>
     <string name="title">Title</string>
     <string name="message">Message</string>
-    <string name="add">Add</string>
+    <string name="add">Save</string>
     <string name="note_saved">Note saved!</string>
     <string name="home">Home</string>
     <string name="search">Search</string>
@@ -49,5 +49,6 @@
     <string name="minimum_8_characters_password">Minimum 8 Characters Password</string>
     <string name="must_contain_1_upper_case_character">Must contain 1 Upper-case Character</string>
     <string name="search_by_message">Search by message</string>
+    <string name="email_already_in_use">Email Already In Use</string>
 
 </resources>

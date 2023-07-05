@@ -32,4 +32,17 @@ class SearchViewModel @Inject constructor(
         }
     }
 
+    fun getNoteMessage(message: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            notesListByMessage.postValue(
+                sharedPreferenceRepository.getCurrentUserEmail()?.let {
+                    noteRepository.getNoteMessage(
+                        it,
+                        message
+                    )
+                }
+            )
+        }
+    }
+
 }
